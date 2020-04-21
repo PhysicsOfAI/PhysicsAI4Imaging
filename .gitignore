@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+/Method1/Sample_Training_unsupervised/loss_list.npy
+/Method1/Sample_Training_unsupervised/psnr_list.npy
+/Method1/Sample_Training_unsupervised/ssim_list.npy
+/Method1/Sample_Training_unsupervised/time_list.npy
