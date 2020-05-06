@@ -67,28 +67,33 @@ For Euler angles it is 3+2 = 5 quantities and for Quaternions it is 4+2 = 6 quan
 The loss curves corresponding to the three datasets are shown below thus indicating that the DNN is successfully able to learn a mapping from the images to the corresponding angles.
 
 ### Data without noise
-![Train_curve](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/angle_regression/outputs/Haar/train_loss.png)
-![Validation_curve](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/angle_regression/outputs/Haar/val_loss.png)
+![Train_curve](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/angle_regression/outputs/Haar/train_loss.png)
+
+![Validation_curve](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/angle_regression/outputs/Haar/val_loss.png)
+
 ### Data with noise - SNR 1.0
-![Train_curve](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/angle_regression/outputs/Haar_1/train_loss.png)
-![Validation_curve](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/angle_regression/outputs/Haar_1/val_loss.png)
+![Train_curve](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/angle_regression/outputs/Haar_1/train_loss.png)
+
+![Validation_curve](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/angle_regression/outputs/Haar_1/val_loss.png)
+
 ### Data with noise - SNR 0.5
-![Train_curve](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/angle_regression/outputs/Haar_0.5/train_loss.png)
-![Validation_curve](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/angle_regression/outputs/Haar_0.5/val_loss.png)
+![Train_curve](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/angle_regression/outputs/Haar_0.5/train_loss.png)
+
+![Validation_curve](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/angle_regression/outputs/Haar_0.5/val_loss.png)
 
 ## Task 2 - Learn a VAE to jointly perform pose estimation and reconstruction of the molecule
 
 Here the goal is the learn a generative model, specifically a VAE which can learn interpretable euler angles/quaternions in its latent space as well as be able to learn a decoder to map these angles back to the image space. 
 The neural network architecture we use is as follows: 
 ### Network architecture 
-![VAE_network_architecture](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/vae_arch.png)
+![VAE_network_architecture](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/vae_arch.png)
 
 The euler angles/quaternions are learned in a supervised manner at the latent space. 
 ### Original Images
-![Original_image_grid](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/org_image.png)
+![Original_image_grid](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/org_image.png)
 
 ### Reconstructed images
-![Reconstructed_image_grid](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/vae_recon.png)
+![Reconstructed_image_grid](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/vae_recon.png)
 
 ### Latent space interpolations
 These represent VAE latent space interpolations. Every row represents the interpolation between the images in the first column and last column. The interpolation is done as follows: 
@@ -101,22 +106,22 @@ Now, each of these z_interp is concatenated with zf1 and fed to the decoder to o
 This shows that the architecture is able to successfully disentangle explcit euler angles from their feature representations. 
 
 
-![Latent_space_interpolations](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/interpolations.png)
+![Latent_space_interpolations](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/interpolations.png)
 
 ### Training curves
 Below shown are the loss curves for the Angle loss, KL divergence loss and L2 reconstruction loss for the VAE on the training set:
 
-![Train_angle_loss](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/train_angle_loss.png)
+![Train_angle_loss](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/train_angle_loss.png)
 
-![Train_kl_loss](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/train_kl_loss.png)
+![Train_kl_loss](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/train_kl_loss.png)
 
-![Train_recon_loss](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/train_recon_loss.png)
+![Train_recon_loss](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/train_recon_loss.png)
 
 ### Validation loss
 Below shown are the loss curves for the Angle loss, KL divergence loss and L2 reconstruction loss for the VAE on the validation set:
 
-![Val_angle_loss](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/val_angle_loss.png)
+![Val_angle_loss](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/val_angle_loss.png)
 
-![Val_kl_loss](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/val_kl_loss.png)
+![Val_kl_loss](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/val_kl_loss.png)
 
-![Val_recon_loss](https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2/-/blob/master/disentangled_vae/outputs/val_recon_loss.png)
+![Val_recon_loss](https://github.com/PhysicsOfAI/PhysicsAI4Imaging/blob/master/Method2/disentangled_vae/outputs_Haar/val_recon_loss.png)
