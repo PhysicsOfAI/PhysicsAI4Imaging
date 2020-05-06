@@ -1,0 +1,25 @@
+class Args:
+    batch_size = 64
+    test_batch_size = 100
+    epochs = 100
+    no_cuda = False
+    seed = 1
+    log_interval = 5
+    UseQuaternionNotEuler = False
+    save_model = False
+    arch = "EulerGainVAE" # "MLP", "Net", "VGG"
+    UseScaleSpaceAndGain = True
+    UseConstantPeak = True
+    ScaleSpaceMin = 0.8
+    ScaleSpaceMax = 1.2
+    GainMin = 0.8
+    GainMax = 1.2
+    UseSymmetryInvariantLoss = False
+    UsePhysicsDecoderAndPixelLoss = False
+    covar_value = 0.04
+    deltachia = 0.04
+    deltachib = 0.04
+    RootDirectory4Data = './data_big_Haar'
+    coeff_angle_loss = 1
+    coeff_recon_loss = 1
+    coeff_kl_loss = 1

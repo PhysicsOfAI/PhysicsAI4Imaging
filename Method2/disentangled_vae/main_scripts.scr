@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+###################################################
+### list of commands to run for different settings
+###################################################
+
+# training 
+
+CUDA_VISIBLE_DEVICES=0, python main.py --RootDirectory4Data ../data/Haar_small 
+
+# testing - saves original, reconstructed and interpolations in a folder called outputs
+
+CUDA_VISIBLE_DEVICES=0, python main.py --RootDirectory4Data ../data/Haar_small --test 
+
+# get predictions of euler angles for new data
+
+CUDA_VISIBLE_DEVICES=0, python main.py --RootDirectory4Data ../data/Haar_small --get_pred_only --pred_folder ./real_images
+
+
+# tensorboard command to run
+
+tensorboard --logdir=runs --host=129.73.9.70 --port=6010
+

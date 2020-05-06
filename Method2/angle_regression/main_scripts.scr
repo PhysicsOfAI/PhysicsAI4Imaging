@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -e
+
+###################################################
+### list of commands to run for different settings
+###################################################
+
+########### Haar SO(3) without noise - currently working with MLP and Euler (not tested on quaternions)
+
+# training
+CUDA_VISIBLE_DEVICES=0, python main.py --RootDirectory4Data ../data/Haar_small --arch EulerGainMLP
+CUDA_VISIBLE_DEVICES=1, python main.py --RootDirectory4Data ../data/Haar_1_small --arch EulerGainVGG
+CUDA_VISIBLE_DEVICES=2, python main.py --RootDirectory4Data ../data/Haar_0.5_small --arch EulerGainVGG
+
+# to just get example predictions on the test set using the trained model.
+CUDA_VISIBLE_DEVICES=0, python main.py --RootDirectory4Data ../data/Haar_small --arch EulerGainMLP --test
+CUDA_VISIBLE_DEVICES=1, python main.py --RootDirectory4Data ../data/Haar_1_small --arch EulerGainVGG --test
+CUDA_VISIBLE_DEVICES=2, python main.py --RootDirectory4Data ../data/Haar_0.5_small --arch EulerGainVGG --test
+
+# to get predictions on new data from a different folder - saves the predicted label as 'labelfile.mat' in that folder
+CUDA_VISIBLE_DEVICES=0, python main.py --RootDirectory4Data ../data/Haar_small --arch EulerGainMLP --get_pred_only --pred_folder ../data/realImages
+CUDA_VISIBLE_DEVICES=1, python main.py --RootDirectory4Data ../data/Haar_1_small --arch EulerGainVGG --get_pred_only --pred_folder ../data/realImages
+CUDA_VISIBLE_DEVICES=2, python main.py --RootDirectory4Data ../data/Haar_0.5_small --arch EulerGainVGG --get_pred_only --pred_folder ../data/realImages
+
+
+# tensorboard commands to run
+
+tensorboard --logdir=runs/Haar --host=129.73.9.70 --port=6008 # go to 129.73.9.70:6008 to see tensorboard
+tensorboard --logdir=runs/Haar_1 --host=129.73.9.70 --port=6009 # go to 129.73.9.70:6009 to see tensorboard
+tensorboard --logdir=runs/Haar_0.5 --host=129.73.9.70 --port=6010 # go to 129.73.9.70:6010 to see tensorboard
+
