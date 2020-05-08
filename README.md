@@ -7,7 +7,7 @@ Using DNN for inverse problems in imaging
 
 All the required dependencies are provided in the PAI.yml file in the folders "angle_regression" and "disentangled_vae". Please run the following command to install an anaconda environment: 
 ```python
-git clone https://code.siemens.com/kaushik.koneripalli/darpa_pai_method2.git
+git clone https://github.com/PhysicsOfAI/PhysicsAI4Imaging.git
 cd Method2
 conda env create -f PAI.yml
 conda activate PAI
