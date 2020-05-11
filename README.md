@@ -1,5 +1,11 @@
 # DARPA PAI - Method 1
 Using DNN for inverse problems in imaging
+# Usage:
+-- Sample based: 
+python Main.py
+-- Distribution based:
+python Main.py (training)
+python MainEval.py (testing)
 
 # DARPA PAI - Method 2
 
